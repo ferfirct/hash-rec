@@ -43,7 +43,7 @@ Resultados foram obtidos para cada combinação:
 
 ### Média de Comparações de Busca
 
-![1000coli](https://github.com/user-attachments/assets/63d4c6d0-15e8-46b8-b9fb-0dc7c6e3c23a)
+![1000comp](https://github.com/user-attachments/assets/aba8562b-bc5a-4d47-b1ed-01bd603a550c)
 
 
 ### Tempo de Busca
