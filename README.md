@@ -29,82 +29,103 @@ Resultados foram obtidos para cada combinação:
 
 ---
 
-## 📈 Gráficos
+## Tabela Hash com tamanho 1.000
 
-### Tabela com tamanho 1000
+### Tempo de Inserção
 
-![1000tempo](https://github.com/user-attachments/assets/f0f3d34d-0379-4f5b-819c-2b12596dd439)
+![1000tempo](https://github.com/user-attachments/assets/d9890c71-86bb-4242-aa10-dcb98d080ca1)
 
 
-📷 Inserir gráfico aqui
+### Número de Colisões
 
-#### Número de Colisões
+![1000coli](https://github.com/user-attachments/assets/20dfe08f-cc95-4881-8a49-d84f1c8e259a)
 
-📷 Inserir gráfico aqui
 
-#### Média de Comparações de Busca
+### Média de Comparações de Busca
 
-📷 Inserir gráfico aqui
+![1000coli](https://github.com/user-attachments/assets/63d4c6d0-15e8-46b8-b9fb-0dc7c6e3c23a)
 
-#### Tempo de Busca
 
-📷 Inserir gráfico aqui
+### Tempo de Busca
 
----
+![busca1k](https://github.com/user-attachments/assets/d6b48df8-86ee-47e4-92ff-e34db6c42489)
 
-### Tabela com tamanho 10000
 
-#### Tempo de Inserção
+### Análise
 
-📷 Inserir gráfico aqui
-
-#### Número de Colisões
-
-📷 Inserir gráfico aqui
-
-#### Média de Comparações de Busca
-
-📷 Inserir gráfico aqui
-
-#### Tempo de Busca
-
-📷 Inserir gráfico aqui
+- Todas as funções apresentaram altíssimo número de colisões (~90%).
+- HashDobramento teve o menor tempo de inserção com 1 milhão de dados.
+- Em buscas, HashDobramento se destacou com menor média de comparações em dados menores.
+- Com 1 milhão de dados, todas as funções tiveram tempo de busca superior a 0.3 ms.
+- O desempenho geral foi limitado pelo baixo tamanho da tabela (saturação).
 
 ---
 
-### Tabela com tamanho 100000
+## Tabela Hash com tamanho 10.000
 
-#### Tempo de Inserção
+### Tempo de Inserção
 
-📷 Inserir gráfico aqui
+![10ktempo](https://github.com/user-attachments/assets/dde4ac7d-00fd-4f7b-9f1d-ea2a86c5d39d)
 
-#### Número de Colisões
+### Número de Colisões
 
-📷 Inserir gráfico aqui
+![10kcoli](https://github.com/user-attachments/assets/5724e493-933e-4819-a96e-4b155a2274e1)
 
-#### Média de Comparações de Busca
 
-📷 Inserir gráfico aqui
+### Média de Comparações de Busca
 
-#### Tempo de Busca
+![10kcomp](https://github.com/user-attachments/assets/18822815-eea3-4b3c-8373-52cb96860abb)
 
-📷 Inserir gráfico aqui
+### Tempo de Busca
+
+![busca10k](https://github.com/user-attachments/assets/d5c5debd-e022-4cb4-844f-02a79ce340c4)
+
+
+### Análise
+
+- Redução drástica nas colisões para HashResto e HashMultiplicacao (menos de 10%).
+- HashDobramento ainda apresentou alta colisão com dados maiores.
+- Tempos de inserção continuam baixos em geral (menos de 21 ms até 1M dados).
+- HashMultiplicacao obteve as melhores médias de comparação (menores que 6).
+- Tempo de busca se manteve em torno de 0.01–0.1 ms para todas as funções, exceto HashDobramento (0.44 ms com 1M).
 
 ---
 
-## Análise dos Resultados
+## Tabela Hash com tamanho 100.000
 
-- Tabelas pequenas (tamanho 1.000) resultaram em altíssimas colisões (próximo de 99%).
-- Tabelas maiores (10.000 e 100.000) reduziram drasticamente as colisões e melhoraram os tempos.
-- A função HashMultiplicacao apresentou o desempenho mais consistente em todas as métricas.
-- HashDobramento teve desempenho aceitável com dados pequenos, mas degradou significativamente com 1 milhão de dados.
-- HashResto foi estável, mas superado por HashMultiplicacao em escalabilidade.
+### Tempo de Inserção
+
+![100ktempo](https://github.com/user-attachments/assets/92d1318f-cf4f-4dcb-84a2-4edebfb321ff)
+
+
+### Número de Colisões
+
+![100kcoli](https://github.com/user-attachments/assets/d54749a9-bdeb-4898-81d9-e39ee4772311)
+
+
+### Média de Comparações de Busca
+
+![100kcomp](https://github.com/user-attachments/assets/1cc9b2c1-e155-4a5f-a4cb-aadf13cf0e12)
+
+
+### Tempo de Busca
+
+![100kcomp](https://github.com/user-attachments/assets/1f868ecc-4a34-4949-a49e-e1d05ab13cf8)
+
+
+### Análise
+
+- HashResto e HashMultiplicacao apresentaram excelente desempenho com poucos conflitos.
+- HashDobramento continuou com número excessivo de colisões e comparações mesmo com a tabela grande.
+- Em todos os cenários, HashMultiplicacao foi a função mais estável.
+- Tempo de busca se manteve abaixo de 0.05 ms, exceto para HashDobramento com 1 milhão (0.47 ms).
+
+---
 
 ## Conclusão
 
-- O aumento do tamanho da tabela hash melhora diretamente a eficiência.
-- Para grandes volumes, o uso de HashMultiplicacao com tabelas ≥ 100.000 é recomendado.
-- Colisões influenciam diretamente o tempo de busca e a quantidade de comparações.
-- Todas as métricas reforçam a importância de um bom dimensionamento da tabela.
-
-
+- A escolha do tamanho da tabela impacta diretamente o desempenho.
+- Funções hash como Multiplicação e Resto são mais consistentes e eficientes.
+- HashDobramento apresentou desempenho inconsistente e escalabilidade inferior.
+- Tabelas com 100.000 posições são ideais para conjuntos com até 1 milhão de dados.
+- A colisão afeta diretamente o tempo de busca e a quantidade de comparações.
