@@ -57,7 +57,6 @@ Resultados foram obtidos para cada combinação:
 - HashDobramento teve o menor tempo de inserção com 1 milhão de dados.
 - Em buscas, HashDobramento se destacou com menor média de comparações em dados menores.
 - Com 1 milhão de dados, todas as funções tiveram tempo de busca superior a 0.3 ms.
-- O desempenho geral foi limitado pelo baixo tamanho da tabela (saturação).
 
 ---
 
@@ -83,7 +82,6 @@ Resultados foram obtidos para cada combinação:
 
 ### Análise
 
-- Redução drástica nas colisões para HashResto e HashMultiplicacao (menos de 10%).
 - HashDobramento ainda apresentou alta colisão com dados maiores.
 - Tempos de inserção continuam baixos em geral (menos de 21 ms até 1M dados).
 - HashMultiplicacao obteve as melhores médias de comparação (menores que 6).
@@ -110,7 +108,8 @@ Resultados foram obtidos para cada combinação:
 
 ### Tempo de Busca
 
-![100kcomp](https://github.com/user-attachments/assets/1f868ecc-4a34-4949-a49e-e1d05ab13cf8)
+![busca100k](https://github.com/user-attachments/assets/3b03401d-86a4-484b-b3dc-158e148556fb)
+
 
 
 ### Análise
@@ -127,5 +126,3 @@ Resultados foram obtidos para cada combinação:
 - A escolha do tamanho da tabela impacta diretamente o desempenho.
 - Funções hash como Multiplicação e Resto são mais consistentes e eficientes.
 - HashDobramento apresentou desempenho inconsistente e escalabilidade inferior.
-- Tabelas com 100.000 posições são ideais para conjuntos com até 1 milhão de dados.
-- A colisão afeta diretamente o tempo de busca e a quantidade de comparações.
